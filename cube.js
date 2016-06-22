@@ -12,7 +12,7 @@ scene.add( cube );
 
 //var textMaterial = new THREE.MeshPhongMaterial({ color: 0xdddddd });
 //var textGeom = new THREE.TextGeometry( 'Node1', {
-//    font: THREE.font. // Must be lowercase!
+//    font: "helvetiker" // Must be lowercase!
 //});
 //var textMesh = new THREE.Mesh( textGeom, textMaterial );
 //scene.add( textMesh );
