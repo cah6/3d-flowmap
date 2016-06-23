@@ -7,16 +7,28 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-// LIGHT
-var light = new THREE.PointLight(0xffffff);
-light.position.set(0,0,1000);
-scene.add(light);
+// add light behind camera
+var light1 = new THREE.PointLight(0xffffff);
+light1.position.set(0,0,1000);
+scene.add(light1);
+
+// and way in front
+var light2 = new THREE.PointLight(0xffffff);
+light2.position.set(0,0,-1000);
+scene.add(light2);
 
 var clock = new THREE.Clock();
 
-createNode("Node1", -10, 30, 0);
-createNode("Node2", -10, 0, 0);
-createNode("Node3", -10, -30, 0);
+// create a few nodes
+var node1 = createNode("Node1", -50, 30, 0, 20);
+node1.material.color.setHex(0xff0000);
+var node2 = createNode("Node2", -10, 0, 0, 20);
+node2.material.color.setHex(0x00ff00);
+var node3 = createNode("Node3", -10, -30, 0, 20);
+node3.material.color.setHex(0xffd633);
+
+// flow data between them
+var particleData = createDataflow(node1, node2, 300);
 
 var camControls = new THREE.FirstPersonControls(camera);
 camControls.lookSpeed = 0.08;
@@ -30,51 +42,139 @@ camControls.lon = -150;
 camControls.lat = 120;
 
 function render() {
-    requestAnimationFrame( render );
     var delta = clock.getDelta();
     camControls.update(delta);
+    //updateParticles(particleData);
+
     renderer.render( scene, camera );
+    requestAnimationFrame(render);
 }
 
-function createNode(name, x, y, z) {
-    var cubeSize = 20;
-    var geometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
-    var material = new THREE.MeshNormalMaterial();
-    var cube = new THREE.Mesh( geometry, material );
-    cube.position.set(x, y, z);
-    scene.add( cube );
+function updateParticles(pData) {
+    var pGeometry = pData[0];
+    var pSystem = pData[1];
 
+    // add some rotation to the system
+    pSystem.rotation.y += 0.01;
+
+    var pCount = pGeometry.vertices.length;
+    while (pCount--) {
+
+        // get the particle
+        var particle = pGeometry.vertices[pCount];
+
+        // check if we need to reset
+        if (particle.position.y < -200) {
+            particle.position.y = 200;
+            particle.velocity.y = 0;
+        }
+
+        // update the velocity with
+        // a splat of randomniz
+        particle.velocity.y -= Math.random() * .1;
+
+        // and the position
+        particle.position.addSelf(
+            particle.velocity);
+    }
+
+    // flag to the particle system
+    // that we've changed its vertices.
+    pSystem.geometry.__dirtyVertices = true;
+}
+
+function createNode(name, x, y, z, size) {
+    var radius = size/2;
+    var geometry = new THREE.SphereGeometry(radius, 10, 10);
+    var material = new THREE.MeshLambertMaterial();
+    var sphere = new THREE.Mesh( geometry, material );
+    sphere.position.set(x, y, z);
+    scene.add(sphere);
 
     // give it a floating label
+    createNameLabel(name, x, y, z, size/2);
+
+    return sphere;
+}
+
+function createDataflow(fromObject, toObject, callsPerMin) {
+    var material = new THREE.LineBasicMaterial({
+        color: 0xd9d9d9
+    });
+
+    var geometry = new THREE.Geometry();
+    geometry.vertices.push(
+        fromObject.getWorldPosition(),
+        toObject.getWorldPosition()
+    );
+
+    var line = new THREE.Line( geometry, material );
+    scene.add(line);
+
+    // create the particle variables
+    var particleGeometry = new THREE.Geometry();
+    // create the particle variables
+    var pMaterial = new THREE.ParticleBasicMaterial({
+        color: 0xFFFFFF,
+        size: 3,
+        map: THREE.ImageUtils.loadTexture(
+            "images/particle.png"
+        ),
+        blending: THREE.AdditiveBlending,
+        transparent: true
+    });
+
+    // now create the individual particleGeometry
+    for (var p = 0; p < callsPerMin; p++) {
+
+        // create a particle with random
+        // position values, -250 -> 250
+        var pX = Math.random() * 50 - 25,
+            pY = Math.random() * 50 - 25,
+            pZ = 0,
+            particle = new THREE.Vector3(pX, pY, pZ);
+
+        // add it to the geometry
+        particleGeometry.vertices.push(particle);
+    }
+
+    // create the particle system
+    var particleSystem = new THREE.Points(
+        particleGeometry,
+        pMaterial);
+    particleSystem.softParticles = true;
+
+    // add it to the scene
+    scene.add(particleSystem);
+
+    return [particleGeometry, particleSystem];
+}
+
+function createNameLabel(text, x, y, z, size) {
     var loader = new THREE.FontLoader();
-    loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+    loader.load('fonts/helvetiker_regular.typeface.json', function (font) {
 
-        var textGeometry = new THREE.TextGeometry( name, {
-
+        var textGeometry = new THREE.TextGeometry(text, {
             font: font,
-
             size: 10,
             height: 5,
             curveSegments: 12,
-
             bevelThickness: 1,
             bevelSize: 1,
             bevelEnabled: true
-
         });
 
         var textMaterial = new THREE.MeshPhongMaterial(
             { color: 0xdddddd, specular: 0xffffff }
         );
 
-        var text = new THREE.Mesh( textGeometry, textMaterial );
-        text.position.set(x + cubeSize/2 + 5, y - cubeSize/2 + 5, z)
+        var textMesh = new THREE.Mesh( textGeometry, textMaterial );
+        // move it to the right, plus a buffer
+        textMesh.position.set(x + size + 5, y - size + 5, z);
 
-        scene.add( text );
+        scene.add(textMesh);
 
     });
-
-    //return cube;
 }
 
 render();
