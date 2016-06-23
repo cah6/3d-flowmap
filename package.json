@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/cah6/3d-flowmap#readme",
   "dependencies": {
-    "three": "^0.78.0"
+    "three": "^0.78.0",
+    "whatwg-fetch": "^1.0.0"
   }
 }
