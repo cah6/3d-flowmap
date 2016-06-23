@@ -19,33 +19,6 @@ scene.add(light2);
 
 var clock = new THREE.Clock();
 
-// create a few nodes
-// var tier1 = createTier("Node1", -50, 30, 0, 20);
-// tier1.material.color.setHex(0xff0000);
-// var tier2 = createTier("Node2", -10, 0, 0, 20);
-// tier2.material.color.setHex(0x00ff00);
-// var tier3 = createTier("Node3", -10, -30, 0, 20);
-// tier3.material.color.setHex(0xffd633);
-function drawTier(tier, x, y, z) {
-    var tierObject = createTier(tier.name, x, y, z, 20);
-    tierObject.material.color.setHex(0xff0000);
-}
-
-function drawTiers() {
-    loadTiers(function (tiers) {
-        var x = 0;
-        for (var tierId in tiers) {
-            if (tiers.hasOwnProperty(tierId)) {
-                var tier = tiers[tierId];
-                console.log("tier: " + JSON.stringify(tier));
-                drawTier(tier, -100 + (x*50), x*10, x*-50);
-                x++;
-            }
-        }
-    })
-}
-drawTiers();
-
 // flow data between them
 // var particleData = createDataflow(tier1, tier2, 300);
 
@@ -123,9 +96,9 @@ var prevTime = performance.now();
 var velocity = new THREE.Vector3();
 
 function render() {
-    // var delta = clock.getDelta();
-    // camControls.update(delta);
-    //updateParticles(particleData);
+    var delta = clock.getDelta();
+    camControls.update(delta);
+    // updateParticles(particleData);
     init();
     animate();
 }
@@ -161,20 +134,6 @@ function updateParticles(pData) {
     // flag to the particle system
     // that we've changed its vertices.
     pSystem.geometry.__dirtyVertices = true;
-}
-
-function createTier(name, x, y, z, size) {
-    var radius = size/2;
-    var geometry = new THREE.SphereGeometry(radius, 10, 10);
-    var material = new THREE.MeshLambertMaterial();
-    var sphere = new THREE.Mesh(geometry, material);
-    sphere.position.set(x, y, z);
-    scene.add(sphere);
-
-    // give it a floating label
-    createNameLabel(name, 6, x, y, z, size/2);
-
-    return sphere;
 }
 
 function createDataflow(fromObject, toObject, callsPerMin) {
@@ -368,5 +327,7 @@ function animate() {
     renderer.render(scene, camera);
 }
 
+$.getScript('tiers.js');
+$.getScript('backends.js');
 render();
 
