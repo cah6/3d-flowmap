@@ -19,8 +19,16 @@ scene.add(light2);
 
 var clock = new THREE.Clock();
 
+// make particle system that will handle them all
+var tick = 0;
+var particleSystem = new THREE.GPUParticleSystem({
+    maxParticles: 250000
+});
+scene.add(particleSystem);
+
 // flow data between them
-// var particleData = createDataflow(tier1, tier2, 300);
+var particleOptions1 = createDataflow(tierObjects[0], tierObjects[1]);
+var particleOptions2 = createDataflow(tierObjects[1], tierObjects[2]);
 
 var camControls = new THREE.FirstPersonControls(camera);
 camControls.lookSpeed = 0.08;
@@ -101,46 +109,24 @@ var velocity = new THREE.Vector3();
 
 function render() {
     var delta = clock.getDelta();
+    tick += delta;
+    if (tick < 0) tick = 0;
+
     camControls.update(delta);
-    // updateParticles(particleData);
+    updateParticles(particleOptions1, delta, 1000);
+    updateParticles(particleOptions2, delta, 1000);
+    particleSystem.update(tick);
     init();
     animate();
 }
 
-function updateParticles(pData) {
-    var pGeometry = pData[0];
-    var pSystem = pData[1];
-
-    // add some rotation to the system
-    pSystem.rotation.y += 0.01;
-
-    var pCount = pGeometry.vertices.length;
-    while (pCount--) {
-
-        // get the particle
-        var particle = pGeometry.vertices[pCount];
-
-        // check if we need to reset
-        if (particle.position.y < -200) {
-            particle.position.y = 200;
-            particle.velocity.y = 0;
-        }
-
-        // update the velocity with
-        // a splat of randomniz
-        particle.velocity.y -= Math.random() * .1;
-
-        // and the position
-        particle.position.addSelf(
-            particle.velocity);
+function updateParticles(options, delta, callsPerMin) {
+    for (var numSpawned = 0; numSpawned < callsPerMin * delta; numSpawned++) {
+        particleSystem.spawnParticle(options);
     }
-
-    // flag to the particle system
-    // that we've changed its vertices.
-    pSystem.geometry.__dirtyVertices = true;
 }
 
-function createDataflow(fromObject, toObject, callsPerMin) {
+function createDataflow(fromObject, toObject) {
     var material = new THREE.LineBasicMaterial({
         color: 0xd9d9d9
     });
@@ -152,45 +138,32 @@ function createDataflow(fromObject, toObject, callsPerMin) {
     );
 
     var line = new THREE.Line(geometry, material);
-    scene.add(line);
+    // scene.add(line);
 
-    // create the particle variables
-    var particleGeometry = new THREE.Geometry();
-    // create the particle variables
-    var pMaterial = new THREE.ParticleBasicMaterial({
-        color: 0xFFFFFF,
-        size: 3,
-        map: THREE.ImageUtils.loadTexture(
-            "images/particle.png"
-        ),
-        blending: THREE.AdditiveBlending,
-        transparent: true
-    });
+    // make particle system
+    var pos2 = toObject.getWorldPosition();
+    var pos1 = fromObject.getWorldPosition();
 
-    // now create the individual particleGeometry
-    for (var p = 0; p < callsPerMin; p++) {
+    var flowDirection = new THREE.Vector3(pos2.x - pos1.x, pos2.y - pos1.y, pos2.z - pos1.z);
+    var distance = flowDirection.length() / 10;
+    flowDirection.normalize();
+    flowDirection.multiplyScalar(2);
 
-        // create a particle with random
-        // position values, -250 -> 250
-        var pX = Math.random() * 50 - 25,
-            pY = Math.random() * 50 - 25,
-            pZ = 0,
-            particle = new THREE.Vector3(pX, pY, pZ);
+    var particleOptions = {
+        position: pos1,
+        positionRandomness: .3,
+        velocity: flowDirection,
+        velocityRandomness: 0,
+        //color: 0xaa88ff,
+        color: 0xffffb3,
+        colorRandomness: .2,
+        turbulence: .3,
+        lifetime: distance,
+        size: 4,
+        sizeRandomness: 1
+    };
 
-        // add it to the geometry
-        particleGeometry.vertices.push(particle);
-    }
-
-    // create the particle system
-    var particleSystem = new THREE.Points(
-        particleGeometry,
-        pMaterial);
-    particleSystem.softParticles = true;
-
-    // add it to the scene
-    scene.add(particleSystem);
-
-    return [particleGeometry, particleSystem];
+    return particleOptions;
 }
 
 function createNameLabel(text, textSize, x, y, z, size) {
