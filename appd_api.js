@@ -2,11 +2,19 @@ var DEFAULT_APP = "ECommerce-E2E";
 
 $(function(){
 
-	function appdApiCall(endPoint, onSuccess, onFailure, applicationName = DEFAULT_APP) {
+	function appdApplicationApiCall(endPoint, onSuccess, onFailure, applicationName = DEFAULT_APP) {
+		appdBaseApiCall(applicationName + "/" + endPoint, onSuccess, onFailure);
+	}
+
+	function appdBaseApiCall(endPoint, onSuccess, onFailure) {
+		var url = "http://127.0.0.1:3000/controller/rest/applications";
+		if (endPoint) {
+			url += "/" + endPoint;
+		}
 		$.ajax
 		  ({
 		    type: "GET",
-		    url: "http://127.0.0.1:3000/controller/rest/applications/" + applicationName + "/" + endPoint + "?output=json",
+		    url: ,
 		    success: function (response) {
 		    	console.log("response: " + JSON.stringify(response)); 
 		    	onSuccess(response);
@@ -20,36 +28,40 @@ $(function(){
 		});
 	}
 
+	function loadApplications(onSuccess, onFailure) {
+		appdBaseApiCall(null, onSuccess, onFailure, applicationName)
+	}
+
 	function loadBizTxn(onSuccess, onFailure, applicationName = DEFAULT_APP) {
-		appdApiCall("business-transactions", onSuccess, onFailure, applicationName)
+		appdApplicationApiCall("business-transactions", onSuccess, onFailure, applicationName)
 	}
 
 	function loadTiers(onSuccess, onFailure, applicationName = DEFAULT_APP) {
-		appdApiCall("tiers", onSuccess, onFailure, applicationName)
+		appdApplicationApiCall("tiers", onSuccess, onFailure, applicationName)
 	}
 
 	function loadBackends(onSuccess, onFailure, applicationName = DEFAULT_APP) {
-		appdApiCall("backends", onSuccess, onFailure, applicationName)
+		appdApplicationApiCall("backends", onSuccess, onFailure, applicationName)
 	}
 
 	function loadNodes(onSuccess, onFailure, applicationName = DEFAULT_APP) {
-		appdApiCall("nodes", onSuccess, onFailure, applicationName)
+		appdApplicationApiCall("nodes", onSuccess, onFailure, applicationName)
 	}
 
 	function loadNodeInfo(nodeName, onSuccess, onFailure, applicationName = DEFAULT_APP) {
-		appdApiCall("nodes/" + nodeName, onSuccess, onFailure, applicationName)
+		appdApplicationApiCall("nodes/" + nodeName, onSuccess, onFailure, applicationName)
 	}
 
 	function loadNodesInTier(tierName, onSuccess, onFailure, applicationName = DEFAULT_APP) {
-		appdApiCall("tiers/" + tierName + "/nodes", onSuccess, onFailure, applicationName)
+		appdApplicationApiCall("tiers/" + tierName + "/nodes", onSuccess, onFailure, applicationName)
 	}
 
 	function loadTierInfo(tierName, onSuccess, onFailure, applicationName = DEFAULT_APP) {
-		appdApiCall("tiers/" + tierName, onSuccess, onFailure, applicationName)
+		appdApplicationApiCall("tiers/" + tierName, onSuccess, onFailure, applicationName)
 	}
 
 	function loadMetricHierarchy(onSuccess, onFailure, applicationName = DEFAULT_APP) {
-		appdApiCall("metrics", onSuccess, onFailure, applicationName)
+		appdApplicationApiCall("metrics", onSuccess, onFailure, applicationName)
 	}
 
     /*
@@ -72,7 +84,7 @@ $(function(){
 		if (endTime != null) {
 			metricDataParams +=  "&" + endTime	
 		}
-		appdApiCall("metric-data?" + encodeURI(metricDataParams), onSuccess, onFailure, applicationName)
+		appdApplicationApiCall("metric-data?" + encodeURI(metricDataParams), onSuccess, onFailure, applicationName)
 	}	
 
 });
