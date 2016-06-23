@@ -75,7 +75,7 @@ if (havePointerLock) {
     var element = document.body;
 
     var pointerlockchange = function (event) {
-        if (document.pointerLockElement === element || document.mozPointerLockElement === element || document.webkitPointerLockElement === element) {
+        if (document.pointerLockElement === element || document.webkitPointerLockElement === element) {
             controlsEnabled = true;
             controls.enabled = true;
 
