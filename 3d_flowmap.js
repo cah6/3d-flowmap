@@ -45,14 +45,18 @@ var instructions = document.getElementById('instructions');
 var havePointerLock = 'pointerLockElement' in document || 'webkitPointerLockElement' in document;
 
 if (havePointerLock) {
+    console.log("Obtained pointer lock");
     var element = document.body;
 
     var pointerlockchange = function (event) {
+        console.log("pointerlockchange");
         if (document.pointerLockElement === element || document.webkitPointerLockElement === element) {
             controlsEnabled = true;
             controls.enabled = true;
 
             blocker.style.display = 'none';
+
+            console.log("Enabled pointer controls");
         } else {
             controls.enabled = false;
 
@@ -213,7 +217,6 @@ function createNameLabel(text, textSize, x, y, z, size) {
         textMesh.position.set(x + size + 5, y - size + 5, z);
 
         scene.add(textMesh);
-
     });
 }
 
