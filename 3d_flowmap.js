@@ -1,3 +1,4 @@
+
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
@@ -12,7 +13,7 @@ scene.add( cube );
 
 //var textMaterial = new THREE.MeshPhongMaterial({ color: 0xdddddd });
 //var textGeom = new THREE.TextGeometry( 'Node1', {
-//    font: "helvetiker" // Must be lowercase!
+//    font: THREE.font. // Must be lowercase!
 //});
 //var textMesh = new THREE.Mesh( textGeom, textMaterial );
 //scene.add( textMesh );
