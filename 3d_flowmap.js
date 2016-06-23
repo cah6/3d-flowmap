@@ -27,8 +27,8 @@ var particleSystem = new THREE.GPUParticleSystem({
 scene.add(particleSystem);
 
 // flow data between them
-var particleOptions1 = createDataflow(tierObjects[0], tierObjects[1]);
-var particleOptions2 = createDataflow(tierObjects[1], tierObjects[2]);
+//var particleOptions1 = createDataflow(tierObjects[0], tierObjects[1]);
+//var particleOptions2 = createDataflow(tierObjects[1], tierObjects[2]);
 
 var camControls = new THREE.FirstPersonControls(camera);
 camControls.lookSpeed = 0.08;
@@ -113,8 +113,8 @@ function render() {
     if (tick < 0) tick = 0;
 
     camControls.update(delta);
-    updateParticles(particleOptions1, delta, 1000);
-    updateParticles(particleOptions2, delta, 1000);
+    // updateParticles(particleOptions1, delta, 1000);
+    // updateParticles(particleOptions2, delta, 1000);
     particleSystem.update(tick);
     init();
     animate();
