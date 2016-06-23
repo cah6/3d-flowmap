@@ -3,6 +3,8 @@ var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHei
 camera.position.z = 150;
 camera.lookAt(0, 0, 0);
 
+var particleOptions = [];
+
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -25,10 +27,6 @@ var particleSystem = new THREE.GPUParticleSystem({
     maxParticles: 250000
 });
 scene.add(particleSystem);
-
-// flow data between them
-//var particleOptions1 = createDataflow(tierObjects[0], tierObjects[1]);
-//var particleOptions2 = createDataflow(tierObjects[1], tierObjects[2]);
 
 var camControls = new THREE.FirstPersonControls(camera);
 camControls.lookSpeed = 0.08;
@@ -113,9 +111,12 @@ function render() {
     if (tick < 0) tick = 0;
 
     camControls.update(delta);
-    // updateParticles(particleOptions1, delta, 1000);
-    // updateParticles(particleOptions2, delta, 1000);
+
+    for (var particleOption in particleOptions) {
+        updateParticles(particleOption, delta, 1000);
+    }
     particleSystem.update(tick);
+
     init();
     animate();
 }
@@ -124,46 +125,6 @@ function updateParticles(options, delta, callsPerMin) {
     for (var numSpawned = 0; numSpawned < callsPerMin * delta; numSpawned++) {
         particleSystem.spawnParticle(options);
     }
-}
-
-function createDataflow(fromObject, toObject) {
-    var material = new THREE.LineBasicMaterial({
-        color: 0xd9d9d9
-    });
-
-    var geometry = new THREE.Geometry();
-    geometry.vertices.push(
-        fromObject.getWorldPosition(),
-        toObject.getWorldPosition()
-    );
-
-    var line = new THREE.Line(geometry, material);
-    // scene.add(line);
-
-    // make particle system
-    var pos2 = toObject.getWorldPosition();
-    var pos1 = fromObject.getWorldPosition();
-
-    var flowDirection = new THREE.Vector3(pos2.x - pos1.x, pos2.y - pos1.y, pos2.z - pos1.z);
-    var distance = flowDirection.length() / 10;
-    flowDirection.normalize();
-    flowDirection.multiplyScalar(2);
-
-    var particleOptions = {
-        position: pos1,
-        positionRandomness: .3,
-        velocity: flowDirection,
-        velocityRandomness: 0,
-        //color: 0xaa88ff,
-        color: 0xffffb3,
-        colorRandomness: .2,
-        turbulence: .3,
-        lifetime: distance,
-        size: 4,
-        sizeRandomness: 1
-    };
-
-    return particleOptions;
 }
 
 function createNameLabel(text, textSize, x, y, z, size) {
@@ -303,7 +264,51 @@ function animate() {
     renderer.render(scene, camera);
 }
 
+function createDataflow(fromObject, toObject) {
+    console.log(fromObject);
+    console.log(toObject);
+    var material = new THREE.LineBasicMaterial({
+        color: 0xd9d9d9
+    });
+
+    var geometry = new THREE.Geometry();
+    geometry.vertices.push(
+        fromObject.getWorldPosition(),
+        toObject.getWorldPosition()
+    );
+
+    var line = new THREE.Line(geometry, material);
+    // scene.add(line);
+
+    // make particle system
+    var pos2 = toObject.getWorldPosition();
+    var pos1 = fromObject.getWorldPosition();
+
+    var flowDirection = new THREE.Vector3(pos2.x - pos1.x, pos2.y - pos1.y, pos2.z - pos1.z);
+    var distance = flowDirection.length() / 10;
+    flowDirection.normalize();
+    flowDirection.multiplyScalar(2);
+
+    var options = {
+        position: pos1,
+        positionRandomness: .3,
+        velocity: flowDirection,
+        velocityRandomness: 0,
+        //color: 0xaa88ff,
+        color: 0xffffb3,
+        colorRandomness: .2,
+        turbulence: .3,
+        lifetime: distance,
+        size: 4,
+        sizeRandomness: 1
+    };
+
+    return options;
+}
+
+$.getScript('connectObjects.js');
 $.getScript('tiers.js');
 $.getScript('backends.js');
+
 render();
 

@@ -29,6 +29,9 @@ function drawTiers() {
                 x++;
             }
         }
+
+        particleOptions.push(createDataflow(tierObjects[0], tierObjects[1]));
+        particleOptions.push(createDataflow(tierObjects[1], tierObjects[2]));
     })
 }
 
