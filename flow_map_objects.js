@@ -51,10 +51,10 @@ function createNode(name, initialX, initialY, initialZ, initialSize) {
 }
 
 function drawNode(model, x, y, z) {
-    var tierObject = createNode(model.name, x, y, z, 20);
-    tierObject.material.color.setHex(0xff0000);
-    tierObject["model"] = model;
-    return tierObject;
+    var nodeObject = createNode(model.name, x, y, z, 20);
+    nodeObject.material.color.setHex(0xff0000);
+    nodeObject["model"] = model;
+    return nodeObject;
 }
 
 function onLoadModels(resolve, models, initialX, initialY, initialZ) {
