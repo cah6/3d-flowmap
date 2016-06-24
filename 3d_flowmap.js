@@ -14,7 +14,7 @@ camControls.movementSpeed = 60;
 camControls.domElement = container;
 camControls.rollSpeed = Math.PI / 6;
 camControls.autoForward = false;
-camControls.dragToLook = false;
+camControls.dragToLook = true;
 
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
