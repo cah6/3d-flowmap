@@ -198,7 +198,8 @@ var ConnectionMap = {
         ]
     },
     "Active MQ-fulfillmentQueue": {
-        "connections": [{"name": "Order-Processing-Services"}
+        "connections": [
+            {"name": "Order-Processing-Services"}
         ],
         "metrics": [
             "metric-path=Service%20Endpoints%7COrder-Processing-Services%7CFulfillmentConsumer%3AfulfillmentQueue%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",

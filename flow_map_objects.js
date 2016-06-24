@@ -1,4 +1,5 @@
 var flowmapObjects = [];
+var textBoxes = [];
 var plane = new THREE.Plane();
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2(),
@@ -46,8 +47,13 @@ function onDocumentMouseDown(event) {
     raycaster.setFromCamera(mouse, camera);
     var intersects = raycaster.intersectObjects(flowmapObjects);
     if (intersects.length > 0) {
+        console.log("Node mouse down");
         camControls.enabled = false;
+        if (SELECTED) {
+            toggleTextPanel(SELECTED["textPanel"]);
+        }
         SELECTED = intersects[0].object;
+        toggleTextPanel(SELECTED["textPanel"]);
         if (raycaster.ray.intersectPlane(plane, intersection)) {
             offset.copy(intersection).sub(SELECTED.position);
         }
@@ -59,6 +65,7 @@ function onDocumentMouseUp(event) {
     event.preventDefault();
     camControls.enabled = true;
     if (INTERSECTED) {
+        console.log("Node mouse up");
         SELECTED = null;
     }
     container.style.cursor = 'auto';
@@ -106,7 +113,7 @@ function createTextPanel(text, x, y, z) {
             side: THREE.DoubleSide,
             transparent: true,
             opacity: 0.5,
-            map : dynamicTexture.texture
+            map: dynamicTexture.texture
         }
     );
     var callsPerMin = Math.random() * 256;
@@ -115,6 +122,18 @@ function createTextPanel(text, x, y, z) {
     var plane = new THREE.Mesh( geometry, material );
     plane.position.set(x - 30, y, z + 5);
     scene.add(plane);
+
+    toggleTextPanel(plane);
+
+    return plane;
+}
+
+
+function toggleTextPanel(plane) {
+    console.log("show" + plane);
+    plane.traverse(function (child) {
+        child.visible = !child.visible;
+    });
 }
 
 function createNode(name, initialX, initialY, initialZ, initialSize) {
@@ -137,7 +156,8 @@ function createNode(name, initialX, initialY, initialZ, initialSize) {
         flowmapObjects.push(sphere);
         // give it a floating label
         createNameLabel(name, 6, x, y, z, size / 2);
-        createTextPanel("", x, y, z);
+        var textPanelMesh = createTextPanel("", x, y, z);
+        sphere["textPanel"] = textPanelMesh
     };
     sphere["yOffset"] = initialY;
 
@@ -207,12 +227,12 @@ function downloadMetricData(resolve, reject) {
     })
 }
 
-var metricDataPromise = new Promise(function(resolve, reject) {
+var metricDataPromise = new Promise(function (resolve, reject) {
     downloadMetricData(resolve, reject);
 });
 
 
-var flowmapObjectsPromise = new Promise(function(resolve, reject) {
+var flowmapObjectsPromise = new Promise(function (resolve, reject) {
     var allObjects = [];
     var doApplications = function (resolve, reject) {
         applicationsPromise.then(function (applicationObjects) {
