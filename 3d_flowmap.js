@@ -77,33 +77,6 @@ function updateParticles(options, delta, callsPerMin) {
     }
 }
 
-function createNameLabel(text, textSize, x, y, z, size) {
-
-    var loader = new THREE.FontLoader();
-    loader.load('fonts/helvetiker_regular.typeface.json', function (font) {
-
-        var textGeometry = new THREE.TextGeometry(text, {
-            font: font,
-            size: textSize,
-            height: 5,
-            curveSegments: 12,
-            bevelThickness: .4,
-            bevelSize: .4,
-            bevelEnabled: true
-        });
-
-        var textMaterial = new THREE.MeshPhongMaterial(
-            {color: 0xdddddd, specular: 0xffffff}
-        );
-
-        var textMesh = new THREE.Mesh(textGeometry, textMaterial);
-        // move it to the right, plus a buffer
-        textMesh.position.set(x + size + 5, y - size + 5, z);
-
-        scene.add(textMesh);
-    });
-}
-
 function init() {
     window.addEventListener('resize', onWindowResize, false);
 }
@@ -120,11 +93,6 @@ function animate() {
 
     renderer.render(scene, camera);
 }
-
-$.getScript('appd_api.js');
-$.getScript('tiers.js');
-$.getScript('backends.js');
-$.getScript('connectObjects.js');
 
 render();
 

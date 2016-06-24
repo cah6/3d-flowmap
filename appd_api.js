@@ -15,7 +15,6 @@ function appdBaseApiCall(endPoint, onSuccess, onFailure) {
 		url += "?output=json"
 	}
 
-	console.log("url: " + url);
 	$.ajax
 	  ({
 		type: "GET",
@@ -34,7 +33,7 @@ function appdBaseApiCall(endPoint, onSuccess, onFailure) {
 }
 
 function loadApplications(onSuccess, onFailure) {
-	appdBaseApiCall(null, onSuccess, onFailure, applicationName)
+	appdBaseApiCall(null, onSuccess, onFailure)
 }
 
 function loadBizTxn(onSuccess, onFailure, applicationName = DEFAULT_APP) {
