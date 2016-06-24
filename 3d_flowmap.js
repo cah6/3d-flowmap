@@ -12,7 +12,7 @@ var clock = new THREE.Clock();
 var camControls = new THREE.FlyControls(camera);
 camControls.movementSpeed = 60;
 camControls.domElement = container;
-camControls.rollSpeed = Math.PI / 24;
+camControls.rollSpeed = Math.PI / 6;
 camControls.autoForward = false;
 camControls.dragToLook = false;
 
