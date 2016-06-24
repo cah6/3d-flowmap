@@ -84,7 +84,7 @@ THREEx.DynamicTexture.prototype.drawTextCooked = function(options){
     lineHeight	: options.lineHeight !== undefined ? options.lineHeight : 0.1,
     align		: options.align !== undefined ? options.align : 'left',
     fillStyle	: options.fillStyle !== undefined ? options.fillStyle : 'black',
-    font		: options.font !== undefined ? options.font : "bold "+(0.2*512)+"px Arial",
+    font		: options.font !== undefined ? options.font : "bold "+(5.*512)+"px Arial",
   }
   // sanity check
   console.assert(typeof(text) === 'string')

@@ -98,8 +98,8 @@ function createNameLabel(text, textSize, x, y, z, size) {
 }
 
 function createTextPanel(text, x, y, z) {
-    var dynamicTexture = new THREEx.DynamicTexture(512, 512);
-    var geometry = new THREE.PlaneGeometry(40, 20, 10, 10);
+    var dynamicTexture = new THREEx.DynamicTexture(1024, 1024);
+    var geometry = new THREE.PlaneGeometry(30, 30, 10, 10);
     var material = new THREE.MeshBasicMaterial(
         {
             color: 0xbfbfbf,
@@ -109,10 +109,11 @@ function createTextPanel(text, x, y, z) {
             map : dynamicTexture.texture
         }
     );
-    dynamicTexture.drawText('Hello', 128, 256, 'white');
+    var callsPerMin = Math.random() * 256;
+    dynamicTexture.drawText('Calls per minute: ' + callsPerMin, 0, 512, 'white', "bold "+(0.2*512)+"px Arial");
     dynamicTexture.texture.needsUpdate = true;
     var plane = new THREE.Mesh( geometry, material );
-    plane.position.set(x - 35, y, z);
+    plane.position.set(x - 30, y, z + 5);
     scene.add(plane);
 }
 
