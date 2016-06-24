@@ -1,4 +1,3 @@
-var tierObjects = [];
 function createTier(name, x, y, z, size) {
     var radius = size/2;
     var geometry = new THREE.SphereGeometry(radius, 10, 10);
@@ -16,20 +15,21 @@ function createTier(name, x, y, z, size) {
 function drawTier(tier, x, y, z) {
     var tierObject = createTier(tier.name, x, y, z, 20);
     tierObject.material.color.setHex(0xff0000);
-    tierObjects.push(tierObject);
+    return tierObject;
 }
 
 function drawTiers(resolve, reject) {
     loadTiers(function (tiers) {
+        var tierObjects = [];
         var x = 0;
         for (var tierId in tiers) {
             if (tiers.hasOwnProperty(tierId)) {
                 var tier = tiers[tierId];
-                drawTier(tier, -100 + (x*50), x*10, x*-50);
+                tierObjects.push(drawTier(tier, -100 + (x*50), x*10, x*-50));
                 x++;
             }
         }
-        resolve();
+        resolve(tierObjects);
     }, function (response) {
         reject(Error("Loading tiers failed with response: " + JSON.stringify(response)));
     })
@@ -39,8 +39,8 @@ var tierPromise = new Promise(function(resolve, reject) {
     drawTiers(resolve, reject);
 });
 
-tierPromise.then(function(results) {
-    console.log("Tiers loaded");
+tierPromise.then(function(tierObjects) {
+    console.log("Tiers loaded - total tiers: " + tierObjects.length);
 },
 function(err) {
     console.log("Failed to load tiers: " + JSON.stringify(err));

@@ -33,7 +33,7 @@ function createDataflow(fromPos, toPos) {
     return options;
 }
 
-tierPromise.then(function() {
+tierPromise.then(function(tierObjects) {
         particleOptions.push(createDataflow(tierObjects[0].getWorldPosition(), tierObjects[1].getWorldPosition()));
         particleOptions.push(createDataflow(tierObjects[3].getWorldPosition(), tierObjects[2].getWorldPosition()));
     },
