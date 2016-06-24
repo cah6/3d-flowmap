@@ -245,6 +245,34 @@ var ConnectionMap = {
     }
 };
 
+var metrics = {};
+function processMetrics(parentName, parent, child, onDataChange) {
+    if (parent.metrics) {
+        for (var i = 0; i < parent.metrics.length; i++) {
+            metrics[parentName] = {};
+            loadMetrics(parent.metrics[i], function (metricData) {
+                if (metricData && metricData.length > 0) {
+                    console.log("metric data: " + JSON.stringify(metricData));
+                    metrics[parentName]["metricData"] = metricData;
+                    if (child.metrics) {
+                        for (var j = 0; j < child.metrics.length; j++) {
+                            loadMetrics(child.metrics[j], function (metricData) {
+                                metrics[parentName][child.name] = metricData;
+                                onDataChange();
+                            })
+                        }
+                    }
+                    onDataChange();
+                }
+            });
+        }
+    }
+}
+
+function updateData() {
+    console.log("New metrics: " + JSON.stringify(metrics));
+}
+
 flowmapObjectsPromise.then(function (flowmapObjects) {
         function findObject(parent, flowmapObjects) {
             for (var i = 0; i < flowmapObjects.length; i++) {
@@ -299,6 +327,7 @@ flowmapObjectsPromise.then(function (flowmapObjects) {
                                     p++;
                                 }
                                 particleOptions.push(createDataflow(parentObj.getWorldPosition(), childObj.getWorldPosition()));
+                                processMetrics(parent, ConnectionMap[parent], child, updateData);
                             }
                         }
                     }

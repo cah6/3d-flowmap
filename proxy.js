@@ -26,10 +26,11 @@ http.createServer(function(req, res) {
     });
     cache = null;
 
-    var url_parts = url.parse(req.url);
+    var url_parts = url.parse(req.url, true);
 
     console.log("request: " + reqStr);
     console.log("request.url: " + url_parts.pathname);
+    console.log("request.search: " + url_parts.search);
     if (url_parts.pathname.indexOf("/controller") == 0) {
         proxy.web(req, res, { target: 'http://ec2-54-213-152-245.us-west-2.compute.amazonaws.com:8090' });
     } else {

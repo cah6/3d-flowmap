@@ -15,6 +15,7 @@ function appdBaseApiCall(endPoint, onSuccess, onFailure) {
         url += "?output=json"
     }
 
+    console.log("final url: " + url);
     $.ajax
     ({
         type: "GET",

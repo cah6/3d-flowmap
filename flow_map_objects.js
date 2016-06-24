@@ -218,19 +218,19 @@ var backendsPromise = new Promise(function (resolve, reject) {
     drawBackends(resolve, reject);
 });
 
-function downloadMetricData(resolve, reject) {
-    loadMetrics(function (metrics) {
-        console.log("Loaded metrics: " + JSON.stringify(metrics));
-        onLoadMetricData(resolve, metrics, 0, 0, 0);
-    }, function (response) {
-        reject(Error("Loading metrics failed with response: " + JSON.stringify(response)));
-    })
-}
-
-var metricDataPromise = new Promise(function (resolve, reject) {
-    downloadMetricData(resolve, reject);
-});
-
+// function downloadMetricData(resolve, reject) {
+//     loadMetrics(function (metrics) {
+//         console.log("Loaded metrics: " + JSON.stringify(metrics));
+//         onLoadMetricData(resolve, metrics, 0, 0, 0);
+//     }, function (response) {
+//         reject(Error("Loading metrics failed with response: " + JSON.stringify(response)));
+//     })
+// }
+//
+// var metricDataPromise = new Promise(function(resolve, reject) {
+//     downloadMetricData(resolve, reject);
+// });
+//
 
 var flowmapObjectsPromise = new Promise(function (resolve, reject) {
     var allObjects = [];
