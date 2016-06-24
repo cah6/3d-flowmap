@@ -37,79 +37,74 @@ var ConnectionMap = {
     "ECommerce-Services": {
         "connections": [
             {
-                "APPDY-MySQL DB-DB-5.5.44-0ubuntu0.14.04.1": {
-                    "metrics": [
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
-                    ]
-                }
+                "name": "APPDY-MySQL DB-DB-5.5.44-0ubuntu0.14.04.1",
+                "metrics": [
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20APPDY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
+                ]
             },
             {
-                "Inventory-Services": {
-                    "metrics": [
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
-                    ]
-                }
+                "name": "Inventory-Services",
+                "metrics": [
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-HTTP%20to%20Inventory-Services%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
+                ]
             },
             {
-                "Active MQ-CustomerQueue": {
-                    "metrics": [
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
-                    ]
-                }
+                "name": "Active MQ-CustomerQueue",
+                "metrics": [
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-CustomerQueue%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
+                ]
             },
             {
-                "Active MQ-OrderQueue": {
-                    "metrics": [
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
-                    ]
-                }
+                "name": "Active MQ-OrderQueue",
+                "metrics": [
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-OrderQueue%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
+                ]
             },
             {
-                "Active MQ-fulfillmentQueue": {
-                    "metrics": [
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
-                    ]
-                }
+                "name": "Active MQ-fulfillmentQueue",
+                "metrics": [
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CECommerce-Services%7CExternal%20Calls%7CCall-JMS%20to%20Discovered%20backend%20call%20-%20Active%20MQ-fulfillmentQueue%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
+                ]
             }
         ],
         "metrics": [
@@ -134,34 +129,33 @@ var ConnectionMap = {
     "Inventory-Services": {
         "connections": [
             {
-                "INVENTORY-MySQL DB-DB-5.5.44-0ubuntu0.14.04.1": {
-                    "metrics": [
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
-                    ]
-                }
+                "name": "INVENTORY-MySQL DB-DB-5.5.44-0ubuntu0.14.04.1",
+                "metrics": [
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20INVENTORY-MySQL%20DB-DB-5.5.44-0ubuntu0.14.04.1%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
+                ]
+
             },
             {
-                "XE-Oracle DB-ORACLE-DB-Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production": {
-                    "metrics": [
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
-                    ]
-                }
+                "name": "XE-Oracle DB-ORACLE-DB-Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production",
+                "metrics": [
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7CInventory-Services%7CExternal%20Calls%7CCall-JDBC%20to%20Discovered%20backend%20call%20-%20XE-Oracle%20DB-ORACLE-DB-Oracle%20Database%2011g%20Express%20Edition%20Release%2011.2.0.2.0%20-%2064bit%20Production%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
+                ]
             }
         ],
         "metrics": [
@@ -185,7 +179,7 @@ var ConnectionMap = {
     },
     "Active MQ-CustomerQueue": {
         "connections": [
-            "Customer-Survey-Services"
+            {"name": "Customer-Survey-Services"}
         ],
         "metrics": [
             "metric-path=Service%20Endpoints%7CCustomer-Survey-Services%7CJMSMessageListener%3ACustomerQueue%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
@@ -195,7 +189,7 @@ var ConnectionMap = {
     },
     "Active MQ-OrderQueue": {
         "connections": [
-            "Order-Processing-Services"
+            {"name": "Order-Processing-Services"}
         ],
         "metrics": [
             "metric-path=Service%20Endpoints%7COrder-Processing-Services%7CMessageConsumer%3AOrderQueue%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
@@ -204,7 +198,7 @@ var ConnectionMap = {
         ]
     },
     "Active MQ-fulfillmentQueue": {
-        "connections": ["Order-Processing-Services"
+        "connections": [{"name": "Order-Processing-Services"}
         ],
         "metrics": [
             "metric-path=Service%20Endpoints%7COrder-Processing-Services%7CFulfillmentConsumer%3AfulfillmentQueue%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
@@ -215,19 +209,18 @@ var ConnectionMap = {
     "Order-Processing-Services": {
         "connections": [
             {
-                "ECommerce-E2E-Fulfillment": {
-                    "metrics": [
-                        "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
-                        "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
-                    ]
-                }
+                "name": "ECommerce-E2E-Fulfillment",
+                "metrics": [
+                    "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CAverage%20Response%20Time%20%28ms%29&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CCalls%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CErrors%20per%20Minute&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CNumber%20of%20bytes%20read%20from%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CNumber%20of%20bytes%20written%20to%20Socket&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CSocket%20Read%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CSocket%20Reads&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CSocket%20Write%20Time&time-range-type=BEFORE_NOW&duration-in-mins=15",
+                    "metric-path=Overall%20Application%20Performance%7COrder-Processing-Services%7CExternal%20Calls%7CCall-HTTP%20to%20External%20Application%20-%20ECommerce-E2E-Fulfillment%7CSocket%20Writes&time-range-type=BEFORE_NOW&duration-in-mins=15"
+                ]
             }
         ],
         "metrics": [
@@ -291,8 +284,8 @@ flowmapObjectsPromise.then(function (flowmapObjects) {
                     for (var childKey in ConnectionMap[parent].connections) {
                         if (ConnectionMap[parent].connections.hasOwnProperty(childKey)) {
                             var child = ConnectionMap[parent].connections[childKey];
-                            console.log("connecting to: " + child);
-                            var childObj = findObject(child, flowmapObjects);
+                            console.log("connecting to: " + child.name);
+                            var childObj = findObject(child.name, flowmapObjects);
                             if (childObj != null) {
                                 if (!containsObject(childObj, rendered)) {
                                     childObj.render(x + (20 * c), (y + childObj.yOffset) + (20 * c), z - (50 * c));
