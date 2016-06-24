@@ -19,7 +19,7 @@ function drawBackend(backend, x, y, z) {
     backendObjects.push(backendObject);
 }
 
-function drawBackends() {
+function drawBackends(resolve, reject) {
     loadBackends(function (backends) {
         var x = 0;
         for (var backendId in backends) {
@@ -29,7 +29,19 @@ function drawBackends() {
                 x++;
             }
         }
+        resolve();
+    }, function (response) {
+        reject(Error("Loading tiers failed with response: " + JSON.stringify(response)));
     })
 }
 
-drawBackends();
+var backendsPromise = new Promise(function(resolve, reject) {
+    drawBackends(resolve, reject);
+});
+
+backendsPromise.then(function(results) {
+        console.log("Backends loaded");
+    },
+    function(err) {
+        console.log("Failed to load backends: " + JSON.stringify(err));
+    });

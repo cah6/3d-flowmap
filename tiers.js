@@ -19,7 +19,7 @@ function drawTier(tier, x, y, z) {
     tierObjects.push(tierObject);
 }
 
-function drawTiers() {
+function drawTiers(resolve, reject) {
     loadTiers(function (tiers) {
         var x = 0;
         for (var tierId in tiers) {
@@ -29,10 +29,19 @@ function drawTiers() {
                 x++;
             }
         }
-
-        particleOptions.push(createDataflow(tierObjects[0].getWorldPosition(), tierObjects[1].getWorldPosition()));
-        particleOptions.push(createDataflow(tierObjects[3].getWorldPosition(), tierObjects[2].getWorldPosition()));
+        resolve();
+    }, function (response) {
+        reject(Error("Loading tiers failed with response: " + JSON.stringify(response)));
     })
 }
 
-drawTiers();
+var tierPromise = new Promise(function(resolve, reject) {
+    drawTiers(resolve, reject);
+});
+
+tierPromise.then(function(results) {
+    console.log("Tiers loaded");
+},
+function(err) {
+    console.log("Failed to load tiers: " + JSON.stringify(err));
+});
