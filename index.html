@@ -12,33 +12,6 @@
             width: 100%;
             height: 100%
         }
-
-        #blocker {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-
-        #instructions {
-            width: 100%;
-            height: 100%;
-            display: -webkit-box;
-            display: -moz-box;
-            display: box;
-            -webkit-box-orient: horizontal;
-            -moz-box-orient: horizontal;
-            box-orient: horizontal;
-            -webkit-box-pack: center;
-            -moz-box-pack: center;
-            box-pack: center;
-            -webkit-box-align: center;
-            -moz-box-align: center;
-            box-align: center;
-            color: #ffffff;
-            text-align: center;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -46,15 +19,8 @@
 <script src="node_modules/three/build/three.min.js"></script>
 <script src='fonts/helvetiker_regular.typeface.json'></script>
 <script src='node_modules/three/examples/js/GPUParticleSystem.js'></script>
-<script src='node_modules/three/examples/js/controls/FirstPersonControls.js'></script>
+<script src='node_modules/three/examples/js/controls/FlyControls.js'></script>
 <script src='node_modules/three/examples/js/controls/PointerLockControls.js'></script>
-<div id="blocker">
-    <div id="instructions">
-        <span style="font-size:40px">Click to begin</span>
-        <br/>
-        (W, A, S, D = Move, MOUSE = Look around)
-    </div>
-</div>
 
 <script src='3d_flowmap.js'></script>
 </body>
