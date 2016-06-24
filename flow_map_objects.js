@@ -145,6 +145,10 @@ var flowmapObjectsPromise = new Promise(function(resolve, reject) {
 
 flowmapObjectsPromise.then(function(flowmapObjects) {
         console.log("All flowmap objects loaded: " + flowmapObjects.length);
+        for (var i = 0; i < flowmapObjects.length; i++) {
+            var obj = flowmapObjects[i];
+            console.log("Flowmap object: " + obj.model.name);
+        }
     },
     function(err) {
         console.log("Failed to load tiers: " + JSON.stringify(err));

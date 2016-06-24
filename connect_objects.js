@@ -55,7 +55,7 @@ var ConnectionMap = {
         "Order-Processing-Services"
     ],
     "Order-Processing-Services": [
-        "ECommerce-E2E-Fullfillment"
+        "ECommerce-E2E-Fulfillment"
     ]
 };
 
