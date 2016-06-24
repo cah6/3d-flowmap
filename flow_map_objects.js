@@ -109,7 +109,7 @@ function downloadMetricData(resolve, reject) {
         console.log("Loaded metrics: " + JSON.stringify(metrics));
         onLoadMetricData(resolve, metrics, 0, 0, 0);
     }, function (response) {
-        reject(Error("Loading tiers failed with response: " + JSON.stringify(response)));
+        reject(Error("Loading metrics failed with response: " + JSON.stringify(response)));
     })
 }
 
