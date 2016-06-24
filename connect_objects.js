@@ -33,14 +33,6 @@ function createDataflow(fromPos, toPos) {
     return options;
 }
 
-function downloadMetricData(resolve, reject) {
-    loadMetrics(function (metrics) {
-        onLoadMetricData(resolve, metrics, 0, 0, 0);
-    }, function (response) {
-        reject(Error("Loading tiers failed with response: " + JSON.stringify(response)));
-    })
-}
-
 var ConnectionMap = {
     "ECommerce-Services": {
         "connections": [
@@ -291,7 +283,7 @@ flowmapObjectsPromise.then(function (flowmapObjects) {
         var z = -50;
         for (var parent in ConnectionMap) {
             if (ConnectionMap.hasOwnProperty(parent)) {
-                x += 100;
+                //x += 100;
                 console.log("connecting and rendering: " + parent);
                 var parentObj = findObject(parent, flowmapObjects);
                 if (parentObj != null) {

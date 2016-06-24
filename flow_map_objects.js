@@ -104,6 +104,20 @@ var backendsPromise = new Promise(function(resolve, reject) {
     drawBackends(resolve, reject);
 });
 
+function downloadMetricData(resolve, reject) {
+    loadMetrics(function (metrics) {
+        console.log("Loaded metrics: " + JSON.stringify(metrics));
+        onLoadMetricData(resolve, metrics, 0, 0, 0);
+    }, function (response) {
+        reject(Error("Loading tiers failed with response: " + JSON.stringify(response)));
+    })
+}
+
+var metricDataPromise = new Promise(function(resolve, reject) {
+    downloadMetricData(resolve, reject);
+});
+
+
 var flowmapObjectsPromise = new Promise(function(resolve, reject) {
     var allObjects = [];
     var doApplications = function (resolve, reject) {
@@ -148,6 +162,19 @@ var flowmapObjectsPromise = new Promise(function(resolve, reject) {
             console.log("Failed to load tiers: " + JSON.stringify(err));
             reject(err);
         });
+
+    // metricDataPromise.then(function(metricObjects) {
+    //         console.log("In metricData promise, metrics loaded - total metrics: " + metricObjects.length);
+    //         for (var i = 0; i < metricObjects.length; i++) {
+    //             allObjects.push(metricObjects[i]);
+    //         }
+    //         console.log("In metricData promise, all objects: " + allObjects.length);
+    //         doBackends(resolve, reject);
+    //     },
+    //     function(err) {
+    //         console.log("Failed to load metrics: " + JSON.stringify(err));
+    //         reject(err);
+    //     });
 });
 
 flowmapObjectsPromise.then(function(flowmapObjects) {
