@@ -288,9 +288,9 @@ flowmapObjectsPromise.then(function (flowmapObjects) {
                 var parentObj = findObject(parent, flowmapObjects);
                 if (parentObj != null) {
                     console.log("found parent object: " + parentObj.model.name);
-                    for (var childKey in ConnectionMap[parent]) {
-                        if (ConnectionMap[parent].hasOwnProperty(childKey)) {
-                            var child = ConnectionMap[parent][childKey];
+                    for (var childKey in ConnectionMap[parent].connections) {
+                        if (ConnectionMap[parent].connections.hasOwnProperty(childKey)) {
+                            var child = ConnectionMap[parent].connections[childKey];
                             console.log("connecting to: " + child);
                             var childObj = findObject(child, flowmapObjects);
                             if (childObj != null) {
