@@ -6,15 +6,22 @@ function createNameLabel(text, textSize, x, y, z, size) {
         var textGeometry = new THREE.TextGeometry(text, {
             font: font,
             size: textSize,
-            height: 5,
+            height: 2,
             curveSegments: 12,
-            bevelThickness: .4,
-            bevelSize: .4,
+            bevelThickness: .2,
+            bevelSize: .2,
             bevelEnabled: true
         });
 
         var textMaterial = new THREE.MeshPhongMaterial(
-            {color: 0xdddddd, specular: 0xffffff}
+            {
+                color: "#2194ce",
+                emissive: "#000000",
+                specular: "#111111",
+                shininess: 30,
+                shading: "THREE.SmoothShading",
+                fog: true
+            }
         );
 
         var textMesh = new THREE.Mesh(textGeometry, textMaterial);
@@ -32,11 +39,13 @@ function createNode(name, initialX, initialY, initialZ, initialSize) {
     var sphere = new THREE.Mesh(geometry, material);
 
     sphere["render"] = function(x = initialX, y = initialY, z = initialZ, size = initialSize) {
+        console.log("Rendering object [" + name + "] at [" + x + "," + y + "," + z + "]");
         sphere.position.set(x, y, z);
         scene.add(sphere);
         // give it a floating label
         createNameLabel(name, 6, x, y, z, size/2);
     };
+    sphere["yOffset"] = initialY;
 
     return sphere;
 }
@@ -50,12 +59,10 @@ function drawNode(model, x, y, z) {
 
 function onLoadModels(resolve, models, initialX, initialY, initialZ) {
     var renderedModels = [];
-    var x = 0;
     for (var modelId in models) {
         if (models.hasOwnProperty(modelId)) {
             var model = models[modelId];
-            renderedModels.push(drawNode(model, initialX + (x*50), initialY + (x*10), initialZ + (x*-50)));
-            x++;
+            renderedModels.push(drawNode(model, initialX, initialY, initialZ));
         }
     }
     resolve(renderedModels);
@@ -63,7 +70,7 @@ function onLoadModels(resolve, models, initialX, initialY, initialZ) {
 
 function drawTiers(resolve, reject) {
     loadTiers(function (tiers) {
-        onLoadModels(resolve, tiers, -100, 0, 0);
+        onLoadModels(resolve, tiers, 0, 0, 0);
     }, function (response) {
         reject(Error("Loading tiers failed with response: " + JSON.stringify(response)));
     })
@@ -75,7 +82,7 @@ var tiersPromise = new Promise(function(resolve, reject) {
 
 function drawApplications(resolve, reject) {
     loadApplications(function (applications) {
-        onLoadModels(resolve, applications, -100, 100, 0);
+        onLoadModels(resolve, applications, 0, 100, 0);
     }, function (response) {
         reject(Error("Loading applications failed with response: " + JSON.stringify(response)));
     })
@@ -87,7 +94,7 @@ var applicationsPromise = new Promise(function(resolve, reject) {
 
 function drawBackends(resolve, reject) {
     loadBackends(function (backends) {
-        onLoadModels(resolve, backends, -100, -100, 0);
+        onLoadModels(resolve, backends, 0, -100, 0);
     }, function (response) {
         reject(Error("Loading backends failed with response: " + JSON.stringify(response)));
     })

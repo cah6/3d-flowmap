@@ -72,6 +72,23 @@ flowmapObjectsPromise.then(function(flowmapObjects) {
             return null;
         }
 
+        var rendered = [];
+        var containsObject = function (obj, list) {
+            var i;
+            for (i = 0; i < list.length; i++) {
+                if (list[i] === obj) {
+                    return true;
+                }
+            }
+
+            return false;
+        };
+
+        var p = 0;
+        var c = 0;
+        var x = -100;
+        var y = 0;
+        var z = -50;
         for (var parent in ConnectionMap) {
             if (ConnectionMap.hasOwnProperty(parent)) {
                 console.log("connecting and rendering: " + parent);
@@ -84,8 +101,16 @@ flowmapObjectsPromise.then(function(flowmapObjects) {
                             console.log("connecting to: " + child);
                             var childObj = findObject(child, flowmapObjects);
                             if (childObj != null) {
-                                childObj.render();
-                                parentObj.render();
+                                if (!containsObject(childObj, rendered)) {
+                                    childObj.render(x + (20*c), (y + childObj.yOffset) + (20*c), z - (50*c));
+                                    rendered.push(childObj);
+                                    c++;
+                                }
+                                if (!containsObject(parentObj, rendered)) {
+                                    parentObj.render(x + (20*p), (y + parentObj.yOffset) + (20*c), z - (50*p));
+                                    rendered.push(parentObj);
+                                    p++;
+                                }
                                 particleOptions.push(createDataflow(parentObj.getWorldPosition(), childObj.getWorldPosition()));
                             }
                         }
