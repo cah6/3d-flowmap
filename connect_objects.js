@@ -59,7 +59,7 @@ var ConnectionMap = {
     ]
 };
 
-flowmapObjectsPromise.then(function(flowmapObjects) {
+flowmapObjectsPromise.then(function (flowmapObjects) {
         function findObject(parent, flowmapObjects) {
             for (var i = 0; i < flowmapObjects.length; i++) {
                 var obj = flowmapObjects[i];
@@ -91,6 +91,7 @@ flowmapObjectsPromise.then(function(flowmapObjects) {
         var z = -50;
         for (var parent in ConnectionMap) {
             if (ConnectionMap.hasOwnProperty(parent)) {
+                x += 100;
                 console.log("connecting and rendering: " + parent);
                 var parentObj = findObject(parent, flowmapObjects);
                 if (parentObj != null) {
@@ -102,12 +103,12 @@ flowmapObjectsPromise.then(function(flowmapObjects) {
                             var childObj = findObject(child, flowmapObjects);
                             if (childObj != null) {
                                 if (!containsObject(childObj, rendered)) {
-                                    childObj.render(x + (20*c), (y + childObj.yOffset) + (20*c), z - (50*c));
+                                    childObj.render(x + (20 * c), (y + childObj.yOffset) + (20 * c), z - (50 * c));
                                     rendered.push(childObj);
                                     c++;
                                 }
                                 if (!containsObject(parentObj, rendered)) {
-                                    parentObj.render(x + (20*p), (y + parentObj.yOffset) + (20*c), z - (50*p));
+                                    parentObj.render(x + (20 * p), (y + parentObj.yOffset) + (20 * c), z - (50 * p));
                                     rendered.push(parentObj);
                                     p++;
                                 }
@@ -119,6 +120,6 @@ flowmapObjectsPromise.then(function(flowmapObjects) {
             }
         }
     },
-    function(err) {
+    function (err) {
         console.log("Failed promise: " + JSON.stringify(err));
     });
