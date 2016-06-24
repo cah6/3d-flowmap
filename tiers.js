@@ -30,8 +30,8 @@ function drawTiers() {
             }
         }
 
-        particleOptions.push(createDataflow(tierObjects[0], tierObjects[1]));
-        particleOptions.push(createDataflow(tierObjects[1], tierObjects[2]));
+        particleOptions.push(createDataflow(tierObjects[0].getWorldPosition(), tierObjects[1].getWorldPosition()));
+        particleOptions.push(createDataflow(tierObjects[3].getWorldPosition(), tierObjects[2].getWorldPosition()));
     })
 }
 

@@ -112,8 +112,8 @@ function render() {
 
     camControls.update(delta);
 
-    for (var particleOption in particleOptions) {
-        updateParticles(particleOption, delta, 1000);
+    for (var i = 0; i < particleOptions.length; i++) {
+        updateParticles(particleOptions[i], delta, 6000);
     }
     particleSystem.update(tick);
 
@@ -123,7 +123,19 @@ function render() {
 
 function updateParticles(options, delta, callsPerMin) {
     for (var numSpawned = 0; numSpawned < callsPerMin * delta; numSpawned++) {
-        particleSystem.spawnParticle(options);
+        // do some manipulation to spawn particles over the length of the beam
+        var optionsCopy = {};
+        for (var i in options) {
+            optionsCopy[i] = options[i];
+        }
+
+        optionsCopy.position = options.position.clone();
+        var scaledDirection = options.velocity.clone();
+        scaledDirection.multiplyScalar(Math.random() * options.lifetime / 2);
+        optionsCopy.position.add(scaledDirection);
+        optionsCopy.lifetime = 0.5;
+        optionsCopy.velocity.setLength(2);
+        particleSystem.spawnParticle(optionsCopy);
     }
 }
 
@@ -264,43 +276,36 @@ function animate() {
     renderer.render(scene, camera);
 }
 
-function createDataflow(fromObject, toObject) {
-    console.log(fromObject);
-    console.log(toObject);
+function createDataflow(fromPos, toPos) {
     var material = new THREE.LineBasicMaterial({
         color: 0xd9d9d9
     });
 
     var geometry = new THREE.Geometry();
-    geometry.vertices.push(
-        fromObject.getWorldPosition(),
-        toObject.getWorldPosition()
-    );
+    geometry.vertices.push(fromPos, toPos);
 
     var line = new THREE.Line(geometry, material);
+    // uncomment for debugging
     // scene.add(line);
 
     // make particle system
-    var pos2 = toObject.getWorldPosition();
-    var pos1 = fromObject.getWorldPosition();
-
-    var flowDirection = new THREE.Vector3(pos2.x - pos1.x, pos2.y - pos1.y, pos2.z - pos1.z);
-    var distance = flowDirection.length() / 10;
+    var flowDirection = new THREE.Vector3(toPos.x - fromPos.x, toPos.y - fromPos.y, toPos.z - fromPos.z);
+    console.log(flowDirection);
+    var distance = flowDirection.length();
     flowDirection.normalize();
-    flowDirection.multiplyScalar(2);
 
     var options = {
-        position: pos1,
-        positionRandomness: .3,
-        velocity: flowDirection,
-        velocityRandomness: 0,
-        //color: 0xaa88ff,
-        color: 0xffffb3,
-        colorRandomness: .2,
-        turbulence: .3,
-        lifetime: distance,
-        size: 4,
-        sizeRandomness: 1
+        position: fromPos,
+        positionRandomness: 2,
+        velocity: flowDirection,    // also direction of line between nodes
+        velocityRandomness: 0.05,
+        color: 0xaa88ff,
+        //color: 0xffffb3,
+        colorRandomness: 0.2,
+        turbulence: 0.2,
+        lifetime: distance,         // also the length of line between nodes
+        size: 7,
+        sizeRandomness: 2
     };
 
     return options;
