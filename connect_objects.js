@@ -276,7 +276,7 @@ flowmapObjectsPromise.then(function (flowmapObjects) {
         var z = -50;
         for (var parent in ConnectionMap) {
             if (ConnectionMap.hasOwnProperty(parent)) {
-                //x += 100;
+                x += 100;
                 console.log("connecting and rendering: " + parent);
                 var parentObj = findObject(parent, flowmapObjects);
                 if (parentObj != null) {
