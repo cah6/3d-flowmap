@@ -97,6 +97,21 @@ function createNameLabel(text, textSize, x, y, z, size) {
     });
 }
 
+function createTextPanel(text, x, y, z) {
+    var geometry = new THREE.PlaneGeometry(40, 20, 10, 10);
+    var material = new THREE.MeshBasicMaterial(
+        {
+            color: 0xbfbfbf,
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 0.5
+        }
+    );
+    var plane = new THREE.Mesh( geometry, material );
+    plane.position.set(x - 35, y, z);
+    scene.add(plane);
+}
+
 function createNode(name, initialX, initialY, initialZ, initialSize) {
     var radius = initialSize / 2;
     var geometry = new THREE.SphereGeometry(radius, 10, 10);
@@ -117,6 +132,7 @@ function createNode(name, initialX, initialY, initialZ, initialSize) {
         flowmapObjects.push(sphere);
         // give it a floating label
         createNameLabel(name, 6, x, y, z, size / 2);
+        createTextPanel("", x, y, z);
     };
     sphere["yOffset"] = initialY;
 
