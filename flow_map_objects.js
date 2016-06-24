@@ -98,15 +98,19 @@ function createNameLabel(text, textSize, x, y, z, size) {
 }
 
 function createTextPanel(text, x, y, z) {
+    var dynamicTexture = new THREEx.DynamicTexture(512, 512);
     var geometry = new THREE.PlaneGeometry(40, 20, 10, 10);
     var material = new THREE.MeshBasicMaterial(
         {
             color: 0xbfbfbf,
             side: THREE.DoubleSide,
             transparent: true,
-            opacity: 0.5
+            opacity: 0.5,
+            map : dynamicTexture.texture
         }
     );
+    dynamicTexture.drawText('Hello', 128, 256, 'white');
+    dynamicTexture.texture.needsUpdate = true;
     var plane = new THREE.Mesh( geometry, material );
     plane.position.set(x - 35, y, z);
     scene.add(plane);
