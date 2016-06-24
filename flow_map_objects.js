@@ -116,8 +116,8 @@ function createTextPanel(text, x, y, z) {
             map: dynamicTexture.texture
         }
     );
-    var callsPerMin = Math.random() * 256;
-    dynamicTexture.drawText('Calls per minute: ' + callsPerMin, 0, 512, 'white', "bold "+(0.2*512)+"px Arial");
+    var callsPerMin = Math.floor(Math.random() * 256);
+    dynamicTexture.drawText('Calls per minute: ' + callsPerMin, 128, 512, 'white', "bold "+(0.15*512)+"px Arial");
     dynamicTexture.texture.needsUpdate = true;
     var plane = new THREE.Mesh( geometry, material );
     plane.position.set(x - 30, y, z + 5);
