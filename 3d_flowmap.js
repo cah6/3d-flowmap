@@ -2,7 +2,7 @@ var container = document.createElement( 'div' );
 document.body.appendChild( container );
 
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 5000);
 camera.position.z = 150;
 
 var particleOptions = [];
@@ -20,15 +20,15 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 container.appendChild( renderer.domElement );
+
 // add light behind camera
 var light1 = new THREE.PointLight(0xffffff);
 light1.position.set(0, 0, 1000);
-
 scene.add(light1);
+
 // and way in front
 var light2 = new THREE.PointLight(0xffffff);
 light2.position.set(0, 0, -1000);
-
 scene.add(light2);
 
 // make particle system that will handle them all
@@ -38,9 +38,7 @@ var particleSystem = new THREE.GPUParticleSystem({
 });
 scene.add(particleSystem);
 
-var objects = [];
-
-var velocity = new THREE.Vector3();
+createBackground();
 
 function render() {
     var delta = clock.getDelta();
@@ -92,6 +90,23 @@ function animate() {
     requestAnimationFrame(render);
 
     renderer.render(scene, camera);
+}
+
+function createBackground() {
+    var loader = new THREE.TextureLoader();
+    var materialArray = [];
+    materialArray.push(new THREE.MeshBasicMaterial( { map: loader.load( 'images/xneg_skybox.png' ) }));
+    materialArray.push(new THREE.MeshBasicMaterial( { map: loader.load( 'images/xpos_skybox.png' ) }));
+    materialArray.push(new THREE.MeshBasicMaterial( { map: loader.load( 'images/ypos_skybox.png' ) }));
+    materialArray.push(new THREE.MeshBasicMaterial( { map: loader.load( 'images/yneg_skybox.png' ) }));
+    materialArray.push(new THREE.MeshBasicMaterial( { map: loader.load( 'images/zpos_skybox.png' ) }));
+    materialArray.push(new THREE.MeshBasicMaterial( { map: loader.load( 'images/zneg_skybox.png' ) }));
+    for (var i = 0; i < 6; i++)
+        materialArray[i].side = THREE.BackSide;
+    var skyboxMaterial = new THREE.MeshFaceMaterial( materialArray );
+    var skyboxGeom = new THREE.CubeGeometry( 5000, 5000, 5000, 1, 1, 1 );
+    var skybox = new THREE.Mesh( skyboxGeom, skyboxMaterial );
+    scene.add(skybox);
 }
 
 render();
